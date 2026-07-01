@@ -1,0 +1,159 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #f5f2ed;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+}
+
+.dark body,
+body.dark {
+  background: #0c0a09;
+  color: #e2e8f0;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #cbd5e1 transparent;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── reveal core ── */
+.reveal,
+.reveal-left,
+.reveal-right,
+.reveal-scale {
+  opacity: 0;
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal         { transform: translateY(40px); }
+.reveal-left    { transform: translateX(-60px); }
+.reveal-right   { transform: translateX(60px); }
+.reveal-scale   { transform: scale(0.92); }
+
+.reveal.show,
+.reveal-left.show,
+.reveal-right.show,
+.reveal-scale.show {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+}
+
+/* ── stagger (cards grid) ── */
+.reveal-stagger > * {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-stagger.show > *:nth-child(1) { transition-delay: 0s; }
+.reveal-stagger.show > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal-stagger.show > *:nth-child(3) { transition-delay: 0.16s; }
+.reveal-stagger.show > *:nth-child(4) { transition-delay: 0.24s; }
+.reveal-stagger.show > *:nth-child(5) { transition-delay: 0.32s; }
+.reveal-stagger.show > *:nth-child(6) { transition-delay: 0.4s; }
+.reveal-stagger.show > *:nth-child(7) { transition-delay: 0.48s; }
+.reveal-stagger.show > *:nth-child(8) { transition-delay: 0.56s; }
+.reveal-stagger.show > *:nth-child(9) { transition-delay: 0.64s; }
+.reveal-stagger.show > *:nth-child(10) { transition-delay: 0.72s; }
+.reveal-stagger.show > *:nth-child(11) { transition-delay: 0.78s; }
+.reveal-stagger.show > *:nth-child(12) { transition-delay: 0.84s; }
+.reveal-stagger.show > * { opacity: 1; transform: translateY(0); }
+
+/* ── hero entrance ── */
+@keyframes hero-fade-in {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes hero-scale-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.hero-entrance         { animation: hero-fade-in 1s cubic-bezier(0.16,1,0.3,1) both; }
+.hero-entrance-delay-1 { animation: hero-fade-in 1s 0.2s cubic-bezier(0.16,1,0.3,1) both; }
+.hero-entrance-delay-2 { animation: hero-scale-in 1s 0.4s cubic-bezier(0.16,1,0.3,1) both; }
+.hero-entrance-delay-3 { animation: hero-fade-in 1s 0.6s cubic-bezier(0.16,1,0.3,1) both; }
+
+/* ── navbar link underline ── */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nav-link:hover::after { width: 100%; }
+
+/* ── product card lift ── */
+.card-lift {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+}
+
+/* ── smooth scroll-chase for scroll indicator ── */
+@keyframes bounce-gentle {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(6px); }
+}
+
+.dark * {
+  scrollbar-color: #57534e transparent;
+}
+
+@layer utilities {
+  .shadow-card {
+    box-shadow:
+      0 1px 2px rgba(0,0,0,0.04),
+      0 2px 4px rgba(0,0,0,0.02);
+  }
+  .shadow-card-hover {
+    box-shadow:
+      0 2px 4px rgba(0,0,0,0.04),
+      0 8px 16px rgba(0,0,0,0.04),
+      0 1px 0 rgba(0,0,0,0.02);
+  }
+  .shadow-cart {
+    box-shadow:
+      0 0 0 1px rgba(0,0,0,0.02),
+      0 4px 16px rgba(0,0,0,0.04),
+      0 2px 4px rgba(0,0,0,0.02);
+  }
+  .shadow-premium {
+    box-shadow:
+      0 1px 2px rgba(0,0,0,0.04),
+      0 4px 12px rgba(0,0,0,0.03),
+      0 0 0 1px rgba(0,0,0,0.02);
+  }
+}

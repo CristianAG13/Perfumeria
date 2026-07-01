@@ -1,0 +1,12 @@
+2026/06/24 02:08:43 "POST http://localhost:8080/api/auth/forgot-password HTTP/1.1" from [::1]:63767 - 200 97B in 3.4538742s
+2026/06/24 02:09:04 "POST http://localhost:8080/api/auth/reset-password HTTP/1.1" from [::1]:58058 - 200 52B in 75.3788ms
+2026/06/24 02:09:12 "POST http://localhost:8080/api/auth/login HTTP/1.1" from [::1]:62218 - 200 665B in 82.9238ms
+2026/06/24 02:09:12 "POST http://localhost:8080/api/auth/login HTTP/1.1" from [::1]:64183 - 200 665B in 84.9926ms
+2026/06/24 02:09:12 "GET http://localhost:8080/api/store/products HTTP/1.1" from [::1]:49334 - 200 3B in 556.2µs
+2026/06/24 02:09:12 "GET http://localhost:8080/api/store/products HTTP/1.1" from [::1]:52110 - 200 3B in 799.9µs
+2026/06/24 02:09:12 "GET http://localhost:8080/api/store/categories HTTP/1.1" from [::1]:49335 - 200 3B in 23.4339ms
+2026/06/24 02:09:12 "GET http://localhost:8080/api/store/categories HTTP/1.1" from [::1]:62476 - 200 3B in 0s
+2026/06/24 02:09:24 "GET http://localhost:8080/api/store/categories HTTP/1.1" from [::1]:54028 - 200 3B in 0s
+2026/06/24 02:09:24 "GET http://localhost:8080/api/store/products HTTP/1.1" from [::1]:54027 - 200 3B in 598µs
+2026/06/24 02:09:24 "GET http://localhost:8080/api/store/categories HTTP/1.1" from [::1]:50477 - 200 3B in 505.3µs
+2026/06/24 02:09:24 "GET http://localhost:8080/api/store/products HTTP/1.1" from [::1]:50478 - 200 3B in 0s

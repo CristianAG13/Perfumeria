@@ -1,0 +1,9 @@
+*.exe
+*.db
+*.db-wal
+*.db-shm
+frontend/dist/
+frontend/node_modules/
+test.db
+test2.db
+.env
